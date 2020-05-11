@@ -8,8 +8,8 @@ This repository contains all matirials about the second challenge of the course 
 * Santo Palaia
 
 ## Files:
-* JSQ.py:                       python implementation of Join Shortest Queue algorithm 
-* Pod-d=3.py:                   python implementation of Power-of-d algorithm with d=3
-* framework(POD and JSQ).txt:   Definition of variables, lists and dictionaries used in the previous two codes + an explanation                                 of the implementatio (Note: the python codes may not reflect the framework)
+* JSQ.py: <tab><tab><tab><tab>python implementation of Join Shortest Queue algorithm 
+* Pod-d=3.py:<tab><tab><tab><tab>python implementation of Power-of-d algorithm with d=3
+* framework(POD and JSQ).txt:<tab><tab>Definition of variables, lists and dictionaries used in the previous two codes + an explanation                                 of the implementatio (Note: the python codes may not reflect the framework)
 
 deadline: 24/05/2020 ??:?? GMT+2
