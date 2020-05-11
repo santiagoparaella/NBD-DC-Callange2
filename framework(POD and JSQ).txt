@@ -1,0 +1,99 @@
+variabili:
+    arrivals_times      tempi con il loro arrivo esatto (come se fosse uno schedule) il tempo di arrivo identifica il task
+    
+    processing_times    dizionario: kiave: tempo di arrivo del processo, valore: tempo di processo necessario
+    
+    
+    dispatcher_queue    lista con i task in coda (.append per aggiungere; .pop(0) per ottenere il prossimo elemento)
+    
+    server_queue        dizionario chiave: numero del server; valore: lista con i task (temp di arrivo del task) in quella coda
+    
+    server_in           dizionario chiave: numero del server; valore: tupla(task, tempo passato nel server) inizializzato a 0 viene incrememntato
+    
+    task_in             lista dei stak attuamente nel sistema (a prescindere da dove stanno)
+    
+    general_task        dizionario chiave: task; valore (inizializzato a 0) il tempo generale impiegato
+   
+    
+    # passiamo dai tempi generati a quelli calcolati generando le due strutture : arrivals_times e processing_times
+    # creiamo una sequenza a passi da 0.02 nell'intervallo [0.8 a 0.99] e la chiamiamo ros
+    
+     ----------- pod -------------
+     
+    creiamo una copia arrivals_times chiamata at
+     
+    iteriamo su ros con ro:
+    
+        calcoliamo tetha
+        generiamo i due tipi di sample
+        creiamo le variabili sopra
+        
+    
+        iteriamo (i) fino a che c'è almeno un task in server_in: é il nostro tempo
+        
+            if i==at[0]: #arrivato un nuovo task
+                
+                aggiungiamolo a task_in (.append)
+            
+                
+                rimuovi(.pop(0) ) at[0] e mettino in attual_task
+                
+                scegliamo radom 3 server
+                otteniamo la lunghezza delle liste dei 3 server in server_queue
+                prendiamo il server con la minore delle 3 (sia questo serve s)
+                
+                server_queue[s].append(attual_task)
+                
+            # a prescindere se arriva o no un nuovo task:
+            
+            #aumento generale dei tempi
+            per ogni task in task_in:
+                general_task[task]=general_task[task]+1 # ogni task nel sistema sta impiegando una ulteriore unità di tempo a orescindere da dove sta
+                
+            
+            #aumento del tempo che è stato processato in un task in esecuzione su un server
+            
+            for j in range(100):
+                task=server_in[j][0] #il processo in esecuzione
+                time=server_in[j][1] tempo che è stato processato
+                
+                #aggiornamento
+                server_in[j]=(task, time+1)
+                
+                if processing_times[task]==time+1: # il task ha esaurito il tmepo di processing_times
+                #lo rimuoviamo sia dal server che dai task nel sistema
+                
+                    #in generale va fatto semppre
+                    task_in.remove(task) # rimuove dalla lista dei task in generale esecuzione nel sistema
+                    
+                    # controlliamo se ci sono task in coda:
+                    if len(server_queue[j])>0:
+                        server_in[j]=(server_queue[j].pop(0), 0) #rimuove dal serve e assegna il successivo
+                    else:
+                        server_queue[j]==None
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                
+                
+                
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
