@@ -155,9 +155,9 @@ for rho in rhos:
                             server_in[j] = (server_queue[j].pop(0), 0) # rimuove dalla coda ed assegna il task successivo
                         
                             
-        #print('general task pree ', general_task)
-        for k, v in general_task.items():
-            general_task[k]=v-processing_times[k]
+        #togliamo il processing time
+        #for k, v in general_task.items():
+        #    general_task[k]=v-processing_times[k]
     
         #mean system time
         mean_time=sum(general_task.values())/len(general_task)
