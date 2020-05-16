@@ -157,7 +157,7 @@ def make_simulation_with_rho(rho, arrival_times):
         #mean msg
         mean_msg=number_of_msg/(iterazioni-scarto) 
         #mean rho
-        mean_rho=mean_arrival/(N*mean_processing)
+        mean_rho=mean_processing/(N*mean_arrival)
 
         inter_time.append(mean_time)
         inter_msg.append(mean_msg)
