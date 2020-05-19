@@ -244,5 +244,5 @@ print(np.array(vuota)/ sum(vuota))
 
 
 plt.plot(real_rho,E_D_rho)
-plt.axis([0.8,1,0,1200,])
+
 
