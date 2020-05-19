@@ -129,11 +129,6 @@ print('#ro', len(rhos), 'rhos',  rhos)
 iterazioni=11000
 scarto = 1000
 
-#generiamo inter-arrival e processing times
-arrivals_samples=[int(round(sample_inter_arrival(), 0)) for i in range(iterazioni)]   
-arrival_times=list(np.cumsum(arrivals_samples))
-arrival_times.insert(0,0)
-E_T = np.mean(arrivals_samples)
 
 list_servers = [i for i in range(N)]
 
